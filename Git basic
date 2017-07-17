@@ -1,0 +1,74 @@
+1.创建新仓库
+1）创建新文件夹，打开
+	git init
+2. 检出仓库
+1）创建本地仓库的克隆版：
+	git clone /path/to/repository
+2)远端服务器仓库
+	git clone username@host:/path/to/repository
+3.工作流：
+	工作目录--add-->暂存区(Index,stage)--commit-->HEAD
+1) 添加(添加到暂存区）
+	git add <filename>
+	git add *
+2)实际提交改动：
+	git commit -m "代码提交信息“
+  现在已经到HEAD了，但没到远端仓库
+3）推送改动到远端仓库：
+	git push origin master
+   可以把master换成你想要推送的任何分支
+   如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器：
+	git remote add origin <server>
+
+4.分支
+创建一个叫做”feature_x“的分支，并切换过去：
+	git checkout -b feature_x
+切换回主分支：
+	git checkout master
+再把新建的分支删掉：
+	git branch -d feature_x
+除非你将分支推送到远端仓库， 不然该分支就是不为他人所见的：
+	git push origin <branch>
+
+5.更新与合并：
+1）更新你的本地仓库至最新改动：
+	git pull
+   以在你的工作目录中获取(fetch)并合并(merge)远端的改动。
+	要合并其他分支到你的当前分支（例如master)：
+	git merge <branch>
+ 出现冲突，手动合并，执行如下命令标记合并成功：
+	git add <filename>
+合并前预览差异：
+	git diff <source_branch> <target_branch>
+
+6.标签：
+ 创建1.00标签
+	gti tg 1.0.0 1b2e1d63ff(是你想要标记的提交ID的前10位字符。）
+  获取提交ID：
+	git log
+
+7.替换本地改动
+	git checkout -- <filename>
+
+	git fetch origin
+	git reset --hard origin/master
+
+8.实用小贴士：
+	gitk
+	git config color.ui true
+	git add -i
+
+
+Git 基础
+
+查看已暂存和未暂存的更新
+git status
+git diff
+git diff --cached(git diff --staged)
+
+
+
+
+
+
+
